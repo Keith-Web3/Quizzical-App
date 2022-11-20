@@ -23,7 +23,7 @@ export default function (props) {
 
   React.useEffect(() => {
     fetch(
-      'https://opentdb.com/api.php?amount=10&category=27&difficulty=medium&type=multiple'
+      'https://opentdb.com/api.php?amount=20&category=27&difficulty=medium&type=multiple'
     )
       .then(res => res.json())
       .then(({ results }) => {
