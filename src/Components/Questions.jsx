@@ -25,7 +25,10 @@ export default function (props) {
       id === props.obj.correctAnsId ? 'correctAns' : '',
     ]
     return (
-      <p onClick={handleClick(id)} className={answerClass.join(' ')}>
+      <p
+        onClick={!props.hasEndedTrivia && handleClick(id)}
+        className={answerClass.join(' ')}
+      >
         {answer}
       </p>
     )

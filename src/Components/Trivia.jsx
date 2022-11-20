@@ -59,11 +59,12 @@ export default function (props) {
             obj={triviaState[idx]}
             key={nanoid()}
             updateScore={updateScore}
+            hasEndedTrivia={hasEndedTrivia}
           />
         )
       })
     )
-  }, [triviaState])
+  }, [triviaState, hasEndedTrivia])
   const className = [hasEndedTrivia ? 'endedTrivia' : '', 'questions-container']
   return (
     <main className={className.join(' ')}>
