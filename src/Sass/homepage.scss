@@ -11,9 +11,7 @@
   }
   p,
   button {
-    font-family: 'Inter', 'Nunito' !important;
-    width: max-content;
-    margin-inline: auto;
+    @include v.sharedProp();
   }
   p {
     color: v.$primary-blue;
@@ -22,13 +20,6 @@
     margin-bottom: v.$spacer * 1.2;
   }
   button {
-    appearance: none;
-    background-color: v.$btn-blue;
-    color: v.$white-200;
-    padding: 0.8em 3em;
-    border-radius: 15px;
-    border: none;
-    cursor: pointer;
-    font-weight: 400;
+    @include v.button();
   }
 }

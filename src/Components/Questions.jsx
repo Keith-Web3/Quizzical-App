@@ -1,21 +1,31 @@
 import React from 'react'
+import { nanoid } from 'nanoid'
 
 export default function (props) {
   const [selected, setSelected] = React.useState(() => '')
-
-  function Answer({ answer, id }) {
-    function handleClick(id) {
-      return () => {
-        setSelected(id)
-        selected === id ? props.question[2](prevVal => prevVal + 1) : 0
-        props.handler(props.id, id)
-      }
+  const [answersIdx, setAnswers] = React.useState(() => {
+    console.log('rendered')
+    let arr = []
+    while (new Set(arr).size !== props.obj.length) {
+      arr = [...arr, Math.floor(Math.random() * props.obj.length)]
     }
+    return [...new Set(arr)]
+  })
+
+  function handleClick(id) {
+    return () => {
+      setSelected(prevVal => id)
+      props.updateScore(props.obj.correctAnsId, id)
+    }
+  }
+  const answers = [...props.obj.answers]
+  function Answer({ answerObj: { answer, id } }) {
+    const answerClass = [
+      selected === id ? 'selected' : '',
+      id === props.obj.correctAnsId ? 'correctAns' : '',
+    ]
     return (
-      <p
-        className={selected === id ? 'selected' : null}
-        onClick={handleClick(id)}
-      >
+      <p onClick={handleClick(id)} className={answerClass.join(' ')}>
         {answer}
       </p>
     )
@@ -23,12 +33,11 @@ export default function (props) {
 
   return (
     <div className="question">
-      <p>{props.question[0]}</p>
+      <p data-answer="">{props.obj.question}</p>
       <div className="answers">
-        <Answer answer={props.answer1[0]} id={props.answer1[1]} />
-        <Answer answer={props.answer2[0]} id={props.answer2[1]} />
-        <Answer answer={props.answer3[0]} id={props.answer3[1]} />
-        <Answer answer={props.answer4[0]} id={props.answer4[1]} />
+        {answersIdx.map(idx => (
+          <Answer answerObj={answers[idx]} key={nanoid()} />
+        ))}
       </div>
       <hr color="#dbdef0" />
     </div>

@@ -106,4 +106,48 @@ hr {
   margin-bottom: 1em;
 }
 
+.checkAns {
+  font-family: "Inter", "Nunito" !important;
+  width: max-content;
+  margin-inline: auto;
+  appearance: none;
+  background-color: #4d5b9e;
+  color: #f5f7fb;
+  padding: 0.8em 3em;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  padding-inline: 1.5em;
+}
+
+.endedTrivia .question .answers p:not(.correctAns) {
+  color: rgba(41, 50, 100, 0.5);
+  border: 0.771045px solid rgba(77, 91, 158, 0.5);
+}
+.endedTrivia .selected {
+  background-color: #f8bcbc;
+}
+.endedTrivia .correctAns {
+  background-color: #94d7a2;
+  border: transparent !important;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+}
+.footer p {
+  font-family: "Karla";
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #293264;
+  text-align: start;
+}
+.footer button {
+  margin-inline: 0;
+}
+
 /*# sourceMappingURL=questions.css.map */

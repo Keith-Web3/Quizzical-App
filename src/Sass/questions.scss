@@ -4,6 +4,7 @@
 .questions-container {
   // @include v.main();
   padding: v.$spacer * 2 v.$spacer * 0.5;
+
   @media (min-width: 600px) {
     width: 75%;
     margin-inline: auto;
@@ -42,4 +43,42 @@
 }
 hr {
   margin-bottom: v.$spacer;
+}
+.checkAns {
+  @include v.sharedProp();
+  @include v.button();
+  padding-inline: 1.5em;
+}
+.endedTrivia {
+  .question {
+    .answers {
+      p:not(.correctAns) {
+        color: rgba(v.$primary-blue, 0.5);
+        border: 0.771045px solid rgba(v.$btn-blue, 0.5);
+      }
+    }
+  }
+  .selected {
+    background-color: v.$wrong-ans;
+  }
+  .correctAns {
+    background-color: v.$right-ans;
+    border: transparent !important;
+  }
+}
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: v.$spacer * 1.5;
+  p {
+    font-family: 'Karla';
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: v.$primary-blue;
+    text-align: start;
+  }
+  button {
+    margin-inline: 0;
+  }
 }

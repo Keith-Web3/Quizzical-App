@@ -5,13 +5,27 @@ import Trivia from './Components/Trivia'
 
 function App() {
   const [startedTrivia, setStartedTrivia] = React.useState(false)
+  const [answers, setAnswers] = React.useState([])
   function startTrivia() {
     setStartedTrivia(true)
   }
+  function endTrivia() {
+    setStartedTrivia(false)
+  }
+  function updateAnswers(id) {
+    setAnswers(prevVal => [...prevVal, id])
+  }
+
   return (
     <>
       {!startedTrivia && <Homepage startTrivia={startTrivia} />}
-      <Trivia startTrivia={startedTrivia} />
+      {startedTrivia && (
+        <Trivia
+          startTrivia={startedTrivia}
+          answers={updateAnswers}
+          endTrivia={endTrivia}
+        />
+      )}
     </>
   )
 }

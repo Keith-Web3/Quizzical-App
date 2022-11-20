@@ -2,6 +2,8 @@ $primary-blue: #293264;
 $btn-blue: #4d5b9e;
 $white-200: #f5f7fb;
 $spacer: 1em;
+$wrong-ans: #f8bcbc;
+$right-ans: #94d7a2;
 
 @mixin main() {
   height: 100%;
@@ -14,4 +16,20 @@ $spacer: 1em;
   display: grid;
   place-content: center;
   text-align: center;
+}
+
+@mixin button() {
+  appearance: none;
+  background-color: $btn-blue;
+  color: $white-200;
+  padding: 0.8em 3em;
+  border-radius: 15px;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+}
+@mixin sharedProp() {
+  font-family: 'Inter', 'Nunito' !important;
+  width: max-content;
+  margin-inline: auto;
 }
