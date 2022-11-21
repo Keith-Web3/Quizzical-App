@@ -32,7 +32,6 @@ export default function (props) {
             const correctAnsId = nanoid()
             return {
               question: item.question,
-              currAns: '',
               id: nanoid(),
               answers: [
                 {
@@ -64,7 +63,7 @@ export default function (props) {
         )
       })
     )
-  }, [triviaState, hasEndedTrivia])
+  }, [triviaState])
   const className = [hasEndedTrivia ? 'endedTrivia' : '', 'questions-container']
   return (
     <main className={className.join(' ')}>
