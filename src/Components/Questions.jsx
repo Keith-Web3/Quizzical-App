@@ -4,7 +4,6 @@ import { nanoid } from 'nanoid'
 export default function (props) {
   const [selected, setSelected] = React.useState(() => '')
   const [answersIdx, setAnswers] = React.useState(() => {
-    console.log('rendered')
     let arr = []
     while (new Set(arr).size !== props.obj.length) {
       arr = [...arr, Math.floor(Math.random() * props.obj.length)]
